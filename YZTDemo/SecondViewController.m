@@ -16,12 +16,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+//    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)registed:(id)sender {
+    [self showAlertViewTitle:@"提示" message:@"注册成功,返回"];
+}
+
+- (void)showAlertViewTitle:(NSString *)title message:(NSString *)msg{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+//        [self popoverPresentationController];
+    }];
+//    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:^{
+        
+    }];
 }
 
 /*

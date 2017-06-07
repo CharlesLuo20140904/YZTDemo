@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <VerifyPass/PhoneVerifyManager.h>
+#import "PhoneAppVerify.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // 注册SDK
+    [[PhoneVerifyManager sharedInstance]requestToken:@"test"];
+    
+    // 监听电话流程
+    [[PhoneAppVerify sharedInstance] phoneVerifyApplication:application didFinishLaunchingWithOptions:launchOptions];
     return YES;
 }
 

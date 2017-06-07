@@ -24,6 +24,9 @@
 		2DD6B5211EE7FC9700AD258D /* YZTDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6B5201EE7FC9700AD258D /* YZTDemoTests.m */; };
 		2DD6B52C1EE7FC9700AD258D /* YZTDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6B52B1EE7FC9700AD258D /* YZTDemoUITests.m */; };
 		2DD6B53B1EE7FF3600AD258D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6B53A1EE7FF3600AD258D /* SecondViewController.m */; };
+		B18340121EE843CB00D84A44 /* PhoneAppVerify.m in Sources */ = {isa = PBXBuildFile; fileRef = B183400F1EE843CB00D84A44 /* PhoneAppVerify.m */; };
+		B18340131EE843CB00D84A44 /* private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = B18340101EE843CB00D84A44 /* private_key.pem */; };
+		B18340141EE843CB00D84A44 /* public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = B18340111EE843CB00D84A44 /* public_key.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +124,7 @@
 		2DB3D1AF1EE802C600688C72 /* x509.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
 		2DB3D1B01EE802C600688C72 /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
 		2DB3D1B11EE802C600688C72 /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
-		2DB3D1B21EE802C600688C72 /* VerifyPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VerifyPass.framework; sourceTree = "<group>"; };
+		2DB3D1B21EE802C600688C72 /* VerifyPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VerifyPass.framework; path = YZTDemo/VerifyPass.framework; sourceTree = "<group>"; };
 		2DB3D1B71EE8037300688C72 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2DB3D1B91EE8037E00688C72 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		2DB3D1BB1EE8038900688C72 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -146,6 +149,10 @@
 		2DD6B52D1EE7FC9700AD258D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DD6B5391EE7FF3600AD258D /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		2DD6B53A1EE7FF3600AD258D /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		B183400E1EE843CB00D84A44 /* PhoneAppVerify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhoneAppVerify.h; path = ../../yzt.ios.demo/VerifyPassSDKProjectTest/VerifyPassSDK/PhoneAppVerify.h; sourceTree = "<group>"; };
+		B183400F1EE843CB00D84A44 /* PhoneAppVerify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneAppVerify.m; path = ../../yzt.ios.demo/VerifyPassSDKProjectTest/VerifyPassSDK/PhoneAppVerify.m; sourceTree = "<group>"; };
+		B18340101EE843CB00D84A44 /* private_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = private_key.pem; path = ../../yzt.ios.demo/VerifyPassSDKProjectTest/VerifyPassSDK/private_key.pem; sourceTree = "<group>"; };
+		B18340111EE843CB00D84A44 /* public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = public_key.pem; path = ../../yzt.ios.demo/VerifyPassSDKProjectTest/VerifyPassSDK/public_key.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +273,7 @@
 		2DB3D1B61EE8037300688C72 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DB3D1B21EE802C600688C72 /* VerifyPass.framework */,
 				2DB3D1BF1EE8039700688C72 /* Foundation.framework */,
 				2DB3D1BD1EE8039000688C72 /* CFNetwork.framework */,
 				2DB3D1BB1EE8038900688C72 /* SystemConfiguration.framework */,
@@ -299,10 +307,9 @@
 		2DD6B5051EE7FC9700AD258D /* YZTDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2DB3D1641EE802C600688C72 /* libcrypto.a */,
-				2DB3D1651EE802C600688C72 /* libssl.a */,
+				B183400E1EE843CB00D84A44 /* PhoneAppVerify.h */,
+				B183400F1EE843CB00D84A44 /* PhoneAppVerify.m */,
 				2DB3D1661EE802C600688C72 /* openssl */,
-				2DB3D1B21EE802C600688C72 /* VerifyPass.framework */,
 				2DD6B5091EE7FC9700AD258D /* AppDelegate.h */,
 				2DD6B50A1EE7FC9700AD258D /* AppDelegate.m */,
 				2DD6B50C1EE7FC9700AD258D /* ViewController.h */,
@@ -321,6 +328,10 @@
 		2DD6B5061EE7FC9700AD258D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B18340101EE843CB00D84A44 /* private_key.pem */,
+				B18340111EE843CB00D84A44 /* public_key.pem */,
+				2DB3D1641EE802C600688C72 /* libcrypto.a */,
+				2DB3D1651EE802C600688C72 /* libssl.a */,
 				2DB3D1C11EE8040500688C72 /* YZT_PrefixHeader.pch */,
 				2DD6B5071EE7FC9700AD258D /* main.m */,
 			);
@@ -456,7 +467,9 @@
 			files = (
 				2DD6B5161EE7FC9700AD258D /* LaunchScreen.storyboard in Resources */,
 				2DD6B5131EE7FC9700AD258D /* Assets.xcassets in Resources */,
+				B18340131EE843CB00D84A44 /* private_key.pem in Resources */,
 				2DD6B5111EE7FC9700AD258D /* Main.storyboard in Resources */,
+				B18340141EE843CB00D84A44 /* public_key.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +494,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B18340121EE843CB00D84A44 /* PhoneAppVerify.m in Sources */,
 				2DD6B53B1EE7FF3600AD258D /* SecondViewController.m in Sources */,
 				2DD6B50E1EE7FC9700AD258D /* ViewController.m in Sources */,
 				2DD6B50B1EE7FC9700AD258D /* AppDelegate.m in Sources */,
@@ -634,11 +648,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AV46R9Z259;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YZTDemo",
 				);
 				INFOPLIST_FILE = YZTDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -654,11 +670,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AV46R9Z259;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YZTDemo",
 				);
 				INFOPLIST_FILE = YZTDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
