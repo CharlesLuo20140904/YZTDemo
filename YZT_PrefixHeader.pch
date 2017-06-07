@@ -1,0 +1,27 @@
+//
+//  YZT_PrefixHeader.pch
+//  YZTDemo
+//
+//  Created by Chow Tai Fook on 2017/6/7.
+//  Copyright © 2017年 Chow Tai Fook. All rights reserved.
+//
+
+#ifndef YZT_PrefixHeader_pch
+#define YZT_PrefixHeader_pch
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
+#define MANAGERURL @"https://www.400yzt.com:8443/app.demo/service/"
+#define SystemVersion [[UIDevice currentDevice] systemVersion].floatValue
+
+
+#endif /* YZT_PrefixHeader_pch */
