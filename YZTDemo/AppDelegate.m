@@ -19,8 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 注册SDK
-    [[PhoneVerifyManager sharedInstance]requestToken:@"test"];
-    
+    [[PhoneVerifyManager sharedInstance]requestToken:@"CTFHOKO"];
     // 监听电话流程
     [[PhoneAppVerify sharedInstance] phoneVerifyApplication:application didFinishLaunchingWithOptions:launchOptions];
     return YES;

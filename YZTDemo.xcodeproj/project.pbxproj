@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D605E201EE8E067001904CB /* public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2D605E1E1EE8E067001904CB /* public_key.pem */; };
+		2D605E211EE8E067001904CB /* rsa_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2D605E1F1EE8E067001904CB /* rsa_key.pem */; };
 		2DB3D1B31EE802C600688C72 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB3D1641EE802C600688C72 /* libcrypto.a */; };
 		2DB3D1B41EE802C600688C72 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB3D1651EE802C600688C72 /* libssl.a */; };
 		2DB3D1B51EE802C600688C72 /* VerifyPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB3D1B21EE802C600688C72 /* VerifyPass.framework */; };
@@ -25,8 +27,6 @@
 		2DD6B52C1EE7FC9700AD258D /* YZTDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6B52B1EE7FC9700AD258D /* YZTDemoUITests.m */; };
 		2DD6B53B1EE7FF3600AD258D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD6B53A1EE7FF3600AD258D /* SecondViewController.m */; };
 		B18340121EE843CB00D84A44 /* PhoneAppVerify.m in Sources */ = {isa = PBXBuildFile; fileRef = B183400F1EE843CB00D84A44 /* PhoneAppVerify.m */; };
-		B18340131EE843CB00D84A44 /* private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = B18340101EE843CB00D84A44 /* private_key.pem */; };
-		B18340141EE843CB00D84A44 /* public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = B18340111EE843CB00D84A44 /* public_key.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D605E1E1EE8E067001904CB /* public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = public_key.pem; sourceTree = "<group>"; };
+		2D605E1F1EE8E067001904CB /* rsa_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_key.pem; sourceTree = "<group>"; };
 		2DB3D1641EE802C600688C72 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		2DB3D1651EE802C600688C72 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		2DB3D1671EE802C600688C72 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
@@ -151,8 +153,6 @@
 		2DD6B53A1EE7FF3600AD258D /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		B183400E1EE843CB00D84A44 /* PhoneAppVerify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhoneAppVerify.h; path = ../../yzt.ios.demo/VerifyPassSDKProjectTest/VerifyPassSDK/PhoneAppVerify.h; sourceTree = "<group>"; };
 		B183400F1EE843CB00D84A44 /* PhoneAppVerify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneAppVerify.m; path = ../../yzt.ios.demo/VerifyPassSDKProjectTest/VerifyPassSDK/PhoneAppVerify.m; sourceTree = "<group>"; };
-		B18340101EE843CB00D84A44 /* private_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = private_key.pem; path = ../../yzt.ios.demo/VerifyPassSDKProjectTest/VerifyPassSDK/private_key.pem; sourceTree = "<group>"; };
-		B18340111EE843CB00D84A44 /* public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = public_key.pem; path = ../../yzt.ios.demo/VerifyPassSDKProjectTest/VerifyPassSDK/public_key.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,8 +328,8 @@
 		2DD6B5061EE7FC9700AD258D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B18340101EE843CB00D84A44 /* private_key.pem */,
-				B18340111EE843CB00D84A44 /* public_key.pem */,
+				2D605E1E1EE8E067001904CB /* public_key.pem */,
+				2D605E1F1EE8E067001904CB /* rsa_key.pem */,
 				2DB3D1641EE802C600688C72 /* libcrypto.a */,
 				2DB3D1651EE802C600688C72 /* libssl.a */,
 				2DB3D1C11EE8040500688C72 /* YZT_PrefixHeader.pch */,
@@ -466,10 +466,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DD6B5161EE7FC9700AD258D /* LaunchScreen.storyboard in Resources */,
+				2D605E201EE8E067001904CB /* public_key.pem in Resources */,
 				2DD6B5131EE7FC9700AD258D /* Assets.xcassets in Resources */,
-				B18340131EE843CB00D84A44 /* private_key.pem in Resources */,
+				2D605E211EE8E067001904CB /* rsa_key.pem in Resources */,
 				2DD6B5111EE7FC9700AD258D /* Main.storyboard in Resources */,
-				B18340141EE843CB00D84A44 /* public_key.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

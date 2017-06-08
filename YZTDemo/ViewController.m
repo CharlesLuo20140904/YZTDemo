@@ -63,7 +63,6 @@
 }
 
 - (void)verifyResult:(NSInteger)status errMsg:(NSString *)msg{
-    NSLog(@"%zi",status);
     switch (status) {
         case 0:
         {
