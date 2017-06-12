@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D5671441EEEB5CE0043A499 /* NativeVerifyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5671431EEEB5CE0043A499 /* NativeVerifyManager.m */; };
 		2D605E201EE8E067001904CB /* public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2D605E1E1EE8E067001904CB /* public_key.pem */; };
 		2D605E211EE8E067001904CB /* rsa_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2D605E1F1EE8E067001904CB /* rsa_key.pem */; };
 		2DB3D1B31EE802C600688C72 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB3D1641EE802C600688C72 /* libcrypto.a */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D5671421EEEB5CE0043A499 /* NativeVerifyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeVerifyManager.h; sourceTree = "<group>"; };
+		2D5671431EEEB5CE0043A499 /* NativeVerifyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeVerifyManager.m; sourceTree = "<group>"; };
 		2D605E1E1EE8E067001904CB /* public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = public_key.pem; sourceTree = "<group>"; };
 		2D605E1F1EE8E067001904CB /* rsa_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_key.pem; sourceTree = "<group>"; };
 		2DB3D1641EE802C600688C72 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
@@ -307,6 +310,8 @@
 		2DD6B5051EE7FC9700AD258D /* YZTDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2D5671421EEEB5CE0043A499 /* NativeVerifyManager.h */,
+				2D5671431EEEB5CE0043A499 /* NativeVerifyManager.m */,
 				B183400E1EE843CB00D84A44 /* PhoneAppVerify.h */,
 				B183400F1EE843CB00D84A44 /* PhoneAppVerify.m */,
 				2DB3D1661EE802C600688C72 /* openssl */,
@@ -499,6 +504,7 @@
 				2DD6B50E1EE7FC9700AD258D /* ViewController.m in Sources */,
 				2DD6B50B1EE7FC9700AD258D /* AppDelegate.m in Sources */,
 				2DD6B5081EE7FC9700AD258D /* main.m in Sources */,
+				2D5671441EEEB5CE0043A499 /* NativeVerifyManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

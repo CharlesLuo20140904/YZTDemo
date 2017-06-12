@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"验证";
     self.phoneTextField.delegate = self;
     [PhoneAppVerify sharedInstance].verifyDelegate = self;
     self.nextBtn.layer.cornerRadius = 5.0;
