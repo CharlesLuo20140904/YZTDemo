@@ -11,15 +11,18 @@
 #import "SecondViewController.h"
 #import "DesUtil.h"
 
-
-
-@interface ViewController ()<UITextFieldDelegate,VerifyDelegate,NSURLSessionDelegate>
+// 服务器地址 若无需要勿动
+#define MANAGERBASEURL @"https://cls.sms.sooware.com/csms/sms/send.do"
+@interface ViewController ()<UITextFieldDelegate,VerifyDelegate,NSURLSessionDelegate>{
+    NSURLSessionTask *_sessionTask;
+}
 @property (weak, nonatomic) IBOutlet UIButton *startBtb;
 - (IBAction)startVerify:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 @property (assign, nonatomic) BOOL hasVerify;
 @property (assign, nonatomic) BOOL nextOperate;;
+
 @end
 
 @implementation ViewController
@@ -41,6 +44,112 @@
 
 
 - (IBAction)startVerify:(id)sender {
+//    NSString *urlStr = [NSString stringWithFormat:@"%@",MANAGERBASEURL];
+//    
+//    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    config.timeoutIntervalForRequest = 20;
+//    NSURLSession *sesson = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[[NSOperationQueue alloc]init]];
+//    
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
+//    [request setHTTPMethod:@"POST"];
+//    NSString *contentType = [NSString stringWithFormat:@"application/json;charset=utf-8"];
+//    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
+//    
+//    NSMutableDictionary *headerDict = [NSMutableDictionary dictionary];
+//    [headerDict setValue:@"zdf" forKey:@"from"];
+//    [headerDict setValue:@"F8185A2AD6EE4F15ABBA691166829C6A" forKey:@"openId"];
+//    
+//    NSMutableDictionary *bodyDict = [NSMutableDictionary dictionary];
+//    [bodyDict setObject:@"86" forKey:@"areaId"];
+//    [bodyDict setObject:@"18475436205" forKey:@"mobile"];
+//    [bodyDict setObject:@"validate code: 1234" forKey:@"conten"];
+//    [bodyDict setObject:@"templateId123" forKey:@"templateId"];
+//    NSString *msgid =  [self createUUID];
+//    [bodyDict setObject:msgid forKey:@"msgid"];
+//    NSLog(@"------%@",bodyDict);
+//    NSString *bodyStr = [self JSONString:bodyDict];;
+//    
+//    NSData *encryBodyData = [DesUtil AES128EncryptWithKey:@"8C1F39974D6549A5" andIV:@"1F00886712C0488A" encryptString:bodyStr];
+//    NSString *encryBody = [DesUtil bytetohexStr:encryBodyData];
+//    NSDictionary *params = @{@"header":headerDict,@"body":encryBody};
+//    NSLog(@"%@",params);
+//    NSData *paramData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:nil];
+//    [request setHTTPBody:paramData];
+//    
+//    _sessionTask = [sesson dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        if (data) {
+//            NSError *err;
+//            NSDictionary *responDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
+//            if (!err && responDic) {
+//                
+//                NSString *responseCode = [responDic objectForKey:@"respCode"];
+//                if (responseCode) {
+//                    NSString *responseCode = [responDic objectForKey:@"respCode"];
+//                    //                    VerifyLog(@"responseCode: %@",responseCode);
+//                    NSLog(@"----%@",responseCode);
+//                }
+//            }else{
+//                //                compeltion(2,@"验证失败",nil);
+//                //                VerifyLog(@"服务器响应失败!");
+//            }
+//        }else{
+//            //            compeltion(2,@"验证失败",nil);
+//            //            VerifyLog(@"服务器出现错误!");
+//        }
+//        
+//    }];
+//    [_sessionTask resume];
+//    NSString *urlStr = @"https://cls.sms.sooware.com/csms/sms/send.do";
+//    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    config.timeoutIntervalForRequest = 20;
+//    NSURLSession *sesson = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[[NSOperationQueue alloc]init]];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
+//    [request setHTTPMethod:@"POST"];
+//    NSString *contentType = [NSString stringWithFormat:@"application/json;charset=utf-8"];
+//    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
+//    NSMutableDictionary *headerDict = [NSMutableDictionary dictionary];
+//    [headerDict setValue:@"zdf" forKey:@"from"];
+//    [headerDict setValue:@"F8185A2AD6EE4F15ABBA691166829C6A" forKey:@"openId"];
+//    NSMutableDictionary *bodyDict = [NSMutableDictionary dictionary];
+//    [bodyDict setObject:@"86" forKey:@"areaId"];
+//    [bodyDict setObject:@"18475436205" forKey:@"mobile"];
+//    [bodyDict setObject:@"validate code: 1234" forKey:@"conten"];
+//    [bodyDict setObject:@"templateId123" forKey:@"templateId"];
+//    NSString *msgid =  [self createUUID];
+//    [bodyDict setObject:msgid forKey:@"msgid"];
+//    NSString *bodyStr = [self JSONString:bodyDict];;
+//    NSLog(@"---body%@",bodyDict);
+////    NSData *encryBodyData = [DesUtil AES128EncryptWithKey:@"8C1F39974D6549A5" andIV:@"1F00886712C0488A" encryptString:bodyStr];
+//    NSString *encryBody = [DesUtil AES128Encrypt:bodyStr];
+//    NSDictionary *params = @{@"header":headerDict,@"body":encryBody};
+//    NSLog(@"%@",params);
+//    
+//    NSData *paramData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:nil];
+//    [request setHTTPBody:paramData];
+//    _sessionTask = [sesson dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        if (data) {
+//            NSError *err;
+//            NSDictionary *responDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
+//            if (!err && responDic) {
+//                
+//                NSString *responseCode = [responDic objectForKey:@"respCode"];
+//                if (responseCode) {
+//                    NSString *responseCode = [responDic objectForKey:@"respCode"];
+//                    NSLog(@"%@",responseCode);
+////                    VerifyLog(@"responseCode: %@",responseCode);
+//                }
+//            }else{
+////                compeltion(2,@"验证失败",nil);
+//                NSLog(@"服务器响应失败!");
+//                NSLog(@"%@",response);
+//            }
+//        }else{
+////            compeltion(2,@"验证失败",nil);
+//            NSLog(@"服务器出现错误!");
+//        }
+//        
+//    }];
+//    [_sessionTask resume];
 //    if (_phoneTextField.text.length == 11) {
 //        [[PhoneAppVerify sharedInstance] verifyPhone:_phoneTextField.text busiType:@"001"];
 //    }else{
@@ -60,7 +169,7 @@
     NSError *parseError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dataDict options:NSJSONWritingPrettyPrinted error:&parseError];
     NSString *str = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSString *dcstr = [DesUtil convertStringToHexStr:[DesUtil AES128Encrypt:str]];
+    NSString *dcstr = [DesUtil AES128Encrypt:str];
 //    NSString *dcstr = [DesUtil AES128Encrypt:str];
     NSString *poststr= [NSString stringWithFormat:@"{\"header\":{\"from\":\"zdf\", \"openId\":\"%@\"},\"body\":\"%@\"}",openID,dcstr];
     NSLog(@"----%@",poststr);
@@ -77,24 +186,63 @@
     [dataTask resume];
 }
 
--(void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
+/**
+ 创建全局唯一的udid共享
+ 
+ @return return value description
+ */
+- (NSString *)createUUID{
     
-    NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-    __block NSURLCredential *credential = nil;
-    
-    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust] && [challenge.protectionSpace.host hasSuffix:@"cls.sms.sooware.com"]) {
-        credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
-        if (credential) {
-            disposition = NSURLSessionAuthChallengeUseCredential;
-        } else {
-            disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-        }
-    } else {
-        disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+    CFUUIDRef uuid_ref = CFUUIDCreate(NULL);
+    CFStringRef uuid_string_ref= CFUUIDCreateString(NULL, uuid_ref);
+    NSString *uuid = [[NSString stringWithString:(__bridge NSString*)uuid_string_ref] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    CFRelease(uuid_string_ref);
+    CFRelease(uuid_ref);
+    return uuid;
+}
+
+- (NSString *)JSONString:(NSDictionary *)object{
+    NSError *error;
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:&error];
+    if (error) {
+        return nil;
+    }else{
+        NSString *bodyStr = [[NSString alloc]initWithData:bodyData encoding:NSUTF8StringEncoding];
+        return bodyStr;
     }
+}
+
+//-(void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
+//    
+//    NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+//    __block NSURLCredential *credential = nil;
+//    
+//    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust] && [challenge.protectionSpace.host hasSuffix:@"cls.sms.sooware.com"]) {
+//        credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+//        if (credential) {
+//            disposition = NSURLSessionAuthChallengeUseCredential;
+//        } else {
+//            disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+//        }
+//    } else {
+//        disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+//    }
+//    
+//    if (completionHandler) {
+//        completionHandler(disposition, credential);
+//    }
+//}
+#pragma mark -----NSURLSessionTaskDelegate-----
+//NSURLAuthenticationChallenge 中的protectionSpace对象存放了服务器返回的证书信息
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler//通过调用block，来告诉NSURLSession要不要收到这个证书
+{
+    //证书分为好几种：服务器信任的证书、输入密码的证书  。。，所以这里最好判断
     
-    if (completionHandler) {
-        completionHandler(disposition, credential);
+    if([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]){//服务器信任证书
+        
+        NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];//服务器信任证书
+        if(completionHandler)
+            completionHandler(NSURLSessionAuthChallengeUseCredential,credential);
     }
 }
 - (IBAction)startNext:(id)sender {
